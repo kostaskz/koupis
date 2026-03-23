@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>KOUPIS GROUP — P&L Budget System</title>
+
+<!-- PWA -->
+<link rel="manifest" href="/manifest.json">
+<meta name="theme-color" content="#5b8def">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Koupis P&L">
+<link rel="apple-touch-icon" href="/icons/icon-192.png">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js" defer crossorigin="anonymous"></script>
+<link rel="stylesheet" href="/styles.css">
+<script src="/app.js" defer></script>
+
+<!-- Register Service Worker -->
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/sw.js')
+        .then(r => console.log('SW registered:', r.scope))
+        .catch(e => console.warn('SW failed:', e));
+    });
+  }
+</script>
+</head>
+<body>
+<button class="mobile-toggle" id="sidebarToggle" type="button" aria-label="Άνοιγμα μενού">☰</button>
+<div class="sidebar-overlay" id="sidebarOverlay" aria-hidden="true"></div>
+
+<div id="login">
+  <div class="lbox">
+    <div class="llogo">KOUPIS <span>GROUP</span></div>
+    <div class="lsub">P&amp;L Budget Management System</div>
+    <div class="fg"><label for="lu">Username</label><input type="text" id="lu" placeholder="Username" autocomplete="username"></div>
+    <div class="fg"><label for="lp">Password</label><input type="password" id="lp" placeholder="Password" autocomplete="current-password"></div>
+    <button class="btn bp" id="loginBtn" type="button">Σύνδεση</button>
+    <div class="lerr" id="lerr">Λάθος στοιχεία σύνδεσης</div>
+  </div>
+</div>
+
+<div id="app">
+  <div class="layout">
+    <aside class="side" aria-label="Κύριο μενού">
+      <div class="shdr">
+        <div class="sbrand">KOUPIS <span>GROUP</span></div>
+        <div class="susr">
+          <div class="sav" id="uav">A</div>
+          <div class="sui">
+            <div class="n" id="unm"></div>
+            <div class="r" id="url"></div>
+          </div>
+        </div>
+      </div>
+      <nav class="snav" id="nav"></nav>
+      <div class="sftr" id="sideFooter"><button class="lout" id="logoutBtn" type="button">⎋ Αποσύνδεση</button></div>
+    </aside>
+    <main class="main" id="mc"></main>
+  </div>
+</div>
+
+<div id="toasts"></div>
+<div id="modals"></div>
+</body>
+</html>
