@@ -150,7 +150,7 @@ td.p{color:var(--grn)}td.n{color:var(--red)}
 .nav-btn{width:100%;border:0;background:transparent;text-align:left}
 .nav-btn:focus-visible,.btn:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--acc2);outline-offset:2px}
 .mobile-toggle{display:none;position:fixed;top:14px;left:14px;z-index:1200;width:42px;height:42px;border-radius:10px;border:1px solid var(--brd);background:var(--bg2);color:var(--txt);align-items:center;justify-content:center}
-.sidebar-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:1090}
+.sidebar-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:1090;cursor:pointer;-webkit-tap-highlight-color:transparent;}
 .search-input{padding:6px 10px;background:var(--bg4);border:1px solid var(--brd);border-radius:var(--r);color:var(--txt);font-size:12px;outline:none}
 .print-loading{opacity:.75;pointer-events:none}
 .pvmodal{max-width:min(1200px,96vw);width:96vw;max-height:92vh;display:flex;flex-direction:column}
