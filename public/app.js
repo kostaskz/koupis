@@ -862,7 +862,9 @@ function setupUIBindings(){
   document.getElementById('loginBtn').addEventListener('click', doLogin);
   document.getElementById('logoutBtn').addEventListener('click', () => logout());
   document.getElementById('sidebarToggle').addEventListener('click', () => document.body.classList.toggle('sidebar-open'));
-  document.getElementById('sidebarOverlay').addEventListener('click', () => document.body.classList.remove('sidebar-open'));
+  const overlay = document.getElementById('sidebarOverlay');
+  overlay.addEventListener('click', () => document.body.classList.remove('sidebar-open'));
+  overlay.addEventListener('touchend', () => document.body.classList.remove('sidebar-open'));
   document.getElementById('nav').addEventListener('click', (e) => {
     const btn=e.target.closest('[data-nav]');
     if(!btn) return;
